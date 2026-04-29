@@ -1,0 +1,465 @@
+/* ============================================
+   ALPS 기술 문서 스타일시트
+   StarRocks Issue Report - 레드 테마
+   Version: 3.0
+   ============================================ */
+
+/* ============================================
+   1. 기본 설정 및 폰트
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+:root {
+  /* 브랜드 컬러 - 붉은 계열 */
+  --primary-color: #dc2626;       /* ALPS 레드 */
+  --primary-dark: #b91c1c;
+  --primary-light: #ef4444;
+
+  /* 텍스트 컬러 */
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+
+  /* 배경 컬러 */
+  --bg-light: #fafafa;
+  --bg-code: #f3f4f6;
+  --bg-warning: #fef3c7;
+  --bg-info: #fee2e2;
+  --bg-danger: #fee2e2;
+  --bg-success: #d1fae5;
+
+  /* 보더 컬러 */
+  --border-light: #e5e7eb;
+  --border-medium: #d1d5db;
+
+  /* 강조 컬러 */
+  --accent-warning: #f59e0b;
+  --accent-danger: #dc2626;
+  --accent-success: #10b981;
+  --accent-info: #dc2626;
+}
+
+body {
+  font-family: 'Noto Sans KR', 'Malgun Gothic', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 9pt;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background-color: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   2. 제목 스타일 (계층 구조 명확화)
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  page-break-after: avoid;
+}
+
+h1 {
+  font-size: 20pt;
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 12px;
+  margin-top: 0;
+  page-break-before: always;
+}
+
+h1:first-of-type {
+  page-break-before: avoid;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 14pt;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-medium);
+  padding-bottom: 8px;
+  margin-top: 2em;
+}
+
+h3 {
+  font-size: 11pt;
+  color: var(--text-secondary);
+  border-left: 4px solid var(--primary-color);
+  padding-left: 12px;
+  margin-top: 1.5em;
+}
+
+h4 {
+  font-size: 10pt;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-top: 1.2em;
+}
+
+
+/* ============================================
+   3. 코드 블록 스타일
+   ============================================ */
+pre {
+  background-color: #1c1917;
+  border: none;
+  border-radius: 6px;
+  padding: 16px 20px;
+  overflow-x: auto;
+  page-break-inside: avoid;
+  margin: 1em 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+pre code {
+  font-family: 'D2Coding', 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 9pt;
+  line-height: 1.5;
+  color: #fef2f2;
+  background: none;
+  padding: 0;
+}
+
+/* 인라인 코드 */
+p code, li code, td code, th code {
+  font-family: 'D2Coding', 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 9pt;
+  background-color: #fee2e2;
+  color: var(--primary-dark);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* 코드 블록 내 주석 강조 */
+pre .hljs-comment {
+  color: #a8a29e;
+  font-style: italic;
+}
+
+/* ============================================
+   4. 테이블 스타일
+   ============================================ */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2em 0;
+  page-break-inside: avoid;
+  font-size: 9.5pt;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+thead {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+}
+
+th {
+  color: white;
+  font-weight: 600;
+  padding: 12px 14px;
+  text-align: left;
+  border: none;
+  font-size: 9.5pt;
+}
+
+td {
+  border: 1px solid var(--border-light);
+  border-left: none;
+  border-right: none;
+  padding: 10px 14px;
+  vertical-align: top;
+}
+
+tr:first-child td {
+  border-top: none;
+}
+
+tr:nth-child(even) {
+  background-color: var(--bg-light);
+}
+
+tr:hover {
+  background-color: #fef2f2;
+}
+
+/* 테이블 내 코드 */
+td code {
+  font-size: 8.5pt;
+}
+
+/* ============================================
+   5. Blockquote - 다양한 Callout 스타일
+   ============================================ */
+blockquote {
+  margin: 1.2em 0;
+  padding: 14px 18px;
+  border-radius: 6px;
+  page-break-inside: avoid;
+  font-size: 9.5pt;
+  position: relative;
+}
+
+/* 기본 blockquote (참고) */
+blockquote {
+  border-left: 4px solid var(--accent-info);
+  background-color: var(--bg-info);
+  color: #991b1b;
+}
+
+/* 주의 (Warning) - "주의:" 또는 "Warning:"으로 시작 */
+blockquote:has(strong:first-child) {
+  border-left: 4px solid var(--accent-warning);
+  background-color: var(--bg-warning);
+  color: #92400e;
+}
+
+/* 중요 스타일을 위한 대안적 접근 */
+blockquote p:first-child strong:first-child {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+/* ============================================
+   6. 강조 텍스트 스타일
+   ============================================ */
+strong {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 경고/중요 문맥의 strong */
+blockquote strong {
+  color: inherit;
+}
+
+em {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+mark {
+  background-color: #fecaca;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+/* ============================================
+   7. 링크 스타일
+   ============================================ */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--primary-light);
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary-dark);
+  border-bottom-style: solid;
+}
+
+/* 외부 링크 표시 (선택적) */
+a[href^="http"]:after {
+  content: " ↗";
+  font-size: 8pt;
+  vertical-align: super;
+}
+
+/* ============================================
+   8. 리스트 스타일
+   ============================================ */
+ul, ol {
+  margin: 0.8em 0;
+  padding-left: 1.8em;
+}
+
+li {
+  margin: 0.4em 0;
+  line-height: 1.6;
+}
+
+li > ul, li > ol {
+  margin: 0.3em 0;
+}
+
+/* 순서 없는 리스트 마커 */
+ul {
+  list-style-type: disc;
+}
+
+ul ul {
+  list-style-type: circle;
+}
+
+ul ul ul {
+  list-style-type: square;
+}
+
+/* 순서 있는 리스트 */
+ol {
+  list-style-type: decimal;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+/* ============================================
+   9. 단락 및 텍스트 블록
+   ============================================ */
+p {
+  margin: 0.8em 0;
+  text-align: justify;
+  word-break: keep-all;
+}
+
+/* 첫 번째 단락 들여쓰기 없음 */
+h1 + p, h2 + p, h3 + p, h4 + p {
+  margin-top: 0.5em;
+}
+
+/* ============================================
+   10. 수평선
+   ============================================ */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, var(--border-light), var(--primary-light), var(--border-light));
+  margin: 2em 0;
+}
+
+/* ============================================
+   11. 이미지
+   ============================================ */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 1em 0;
+}
+
+/* ============================================
+   12. 인쇄 최적화
+   ============================================ */
+@media print {
+  body {
+    font-size: 9pt;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+
+  pre, blockquote, table, figure {
+    page-break-inside: avoid;
+  }
+
+  /* 외부 링크 표시 제거 */
+  a[href^="http"]:after {
+    content: "";
+  }
+
+  /* 고아/과부 텍스트 방지 */
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+/* ============================================
+   13. 페이지 브레이크 유틸리티
+   ============================================ */
+.page-break {
+  page-break-after: always;
+}
+
+.no-break {
+  page-break-inside: avoid;
+}
+
+.break-before {
+  page-break-before: always;
+}
+
+/* ============================================
+   14. 특수 컴포넌트
+   ============================================ */
+
+/* 권장사항 박스 (참고: 텍스트에 "권장사항:" 포함 시) */
+blockquote p:first-child:contains("권장사항"),
+blockquote p:first-child:contains("Tip"),
+blockquote p:first-child:contains("팁") {
+  border-left-color: var(--accent-success);
+  background-color: var(--bg-success);
+  color: #065f46;
+}
+
+/* 문서 버전 정보 스타일 */
+p:last-of-type {
+  color: var(--text-muted);
+  font-size: 9pt;
+}
+
+/* ============================================
+   15. 목차 스타일 (TOC)
+   ============================================ */
+nav#toc {
+  background-color: var(--bg-light);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 2em;
+}
+
+nav#toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+nav#toc li {
+  margin: 0.3em 0;
+}
+
+nav#toc a {
+  border-bottom: none;
+}
+
+/* ============================================
+   16. 쿼리 흐름 다이어그램 (ASCII art) 스타일
+   ============================================ */
+pre:has(code:contains("→")),
+pre:has(code:contains("─")) {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-medium);
+  text-align: center;
+}
+
+pre:has(code:contains("→")) code,
+pre:has(code:contains("─")) code {
+  color: var(--text-primary);
+  font-size: 10pt;
+}
+
+/* ============================================
+   17. 이미지 사이즈 클래스
+    - 다이어그램, 아이콘 등 다양한 크기 조절을 위한 유틸리티 클래스
+    <img src="ALPS1/image.png" class="tall" alt="와이드 캡처">
+   ============================================ */
+/* 작게 표시할 다이어그램/아이콘 */
+img.small   { max-width: 50%; max-height: 100mm; }
+img.medium  { max-width: 75%; max-height: 150mm; }
+img.large   { max-width: 100%; max-height: 210mm; }
+
+/* 가로로 매우 긴 이미지 (와이드 다이어그램, 테이블 캡처) */
+img.landscape {
+  max-width: 100%;
+  max-height: 130mm;
+}
+
+/* 세로로 매우 긴 이미지 (전체 화면 캡처, 긴 폼) */
+img.tall {
+  max-width: 60%;
+  max-height: 210mm;
+}
