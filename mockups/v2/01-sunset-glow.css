@@ -1,0 +1,221 @@
+/* ============================================
+   v2 / 01 — Sunset Glow
+   Concept: 따뜻한 노을 (오렌지 → 핑크 → 코랄)
+   특징: 흰 배경 + 따뜻한 그라디언트 액센트, 부드러움
+   ============================================ */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+  --bg: #ffffff;
+  --text: #1f1b2e;
+  --text-soft: #4a4458;
+  --text-muted: #8a8398;
+
+  --grad-main: linear-gradient(135deg, #ff6b6b 0%, #ff9a5a 50%, #ffd166 100%);
+  --grad-soft: linear-gradient(135deg, #fff5f0 0%, #fff9f0 100%);
+
+  --accent: #f5576c;
+  --accent-2: #f59e0b;
+  --accent-soft: #fff1f2;
+  --border: #fde8e8;
+  --surface: #fffaf7;
+  --code-bg: #2d1b1b;
+}
+
+body {
+  font-family: 'Pretendard', system-ui, sans-serif;
+  font-size: 9pt;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+  line-height: 1.25;
+}
+h1, h2, h3 { page-break-after: avoid; }
+
+h1 {
+  font-size: 26pt;
+  background: var(--grad-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 0;
+}
+h1:first-of-type { page-break-before: avoid; }
+
+h2 {
+  font-size: 16pt;
+  color: var(--text);
+  position: relative;
+  padding-left: 16px;
+  margin-top: 2em;
+}
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.2em; bottom: 0.2em;
+  width: 4px;
+  background: var(--grad-main);
+  border-radius: 2px;
+}
+
+h3 { font-size: 12pt; color: var(--accent); font-weight: 600; }
+h4 { font-size: 10.5pt; color: var(--text-soft); font-weight: 600; }
+
+pre {
+  background: var(--code-bg);
+  background: linear-gradient(135deg, #2d1b1b 0%, #3d2424 100%);
+  border: 1px solid #4a2f2f;
+  border-radius: 12px;
+  padding: 16px 20px;
+  page-break-inside: auto;
+  margin: 1.2em 0;
+  box-shadow: 0 8px 24px rgba(245, 87, 108, 0.15);
+}
+pre code {
+  font-family: 'JetBrains Mono', 'D2Coding', Consolas, monospace;
+  font-size: 9pt;
+  color: #ffe4d6;
+  background: none;
+  padding: 0;
+  line-height: 1.6;
+}
+
+p code, li code, td code, th code {
+  font-family: 'JetBrains Mono', 'D2Coding', monospace;
+  font-size: 8.8pt;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2em 0;
+  font-size: 8pt;
+  border-radius: 12px;
+  overflow: hidden;
+  page-break-inside: auto;
+  box-shadow: 0 4px 16px rgba(245, 87, 108, 0.08);
+  border: 1px solid var(--border);
+}
+tr { page-break-inside: avoid; }
+
+thead { background: var(--grad-main); }
+th {
+  color: white;
+  font-weight: 600;
+  padding: 12px 14px;
+  text-align: left;
+  border: none;
+  font-size: 8pt;
+  letter-spacing: 0.02em;
+}
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 14px;
+  vertical-align: top;
+  background: white;
+  color: var(--text-soft);
+}
+tr:nth-child(even) td { background: var(--surface); }
+tr:last-child td { border-bottom: none; }
+
+blockquote {
+  margin: 1.2em 0;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--grad-soft);
+  border: 1px solid var(--border);
+  page-break-inside: avoid;
+  font-size: 9pt;
+  color: var(--text-soft);
+}
+blockquote p { margin: 0.4em 0; }
+blockquote:has(strong:first-child) {
+  background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+  border-color: #fbbf24;
+  color: #92400e;
+}
+
+strong { color: var(--text); font-weight: 700; }
+em { color: var(--text-soft); font-style: italic; }
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+}
+a:hover { border-bottom-color: var(--accent); }
+
+ul, ol { margin: 0.7em 0; padding-left: 1.6em; }
+li { margin: 0.3em 0; line-height: 1.6; }
+li::marker { color: var(--accent); }
+
+p { margin: 0.7em 0; word-break: keep-all; }
+
+hr {
+  border: none;
+  height: 2px;
+  background: var(--grad-main);
+  margin: 2em 0;
+  border-radius: 1px;
+  opacity: 0.4;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 1em auto;
+  display: block;
+  box-shadow: 0 8px 24px rgba(245, 87, 108, 0.12);
+}
+
+@media print {
+  body { font-size: 9pt; }
+  h1, h2, h3 { page-break-after: avoid; }
+  pre, blockquote, table, figure { page-break-inside: auto; }
+  a[href^="http"]:after { content: ""; }
+  p, li { orphans: 3; widows: 3; }
+}
+.page-break { page-break-after: always; }
+.no-break   { page-break-inside: avoid; }
+.break-before { page-break-before: always; }
+
+img.small   { max-width: 50%;  max-height: 100mm; }
+img.medium  { max-width: 75%;  max-height: 150mm; }
+img.large   { max-width: 100%; max-height: 210mm; }
+img.xlarge  { width: 100%; max-width: 100%; max-height: 230mm; }
+img.landscape { max-width: 100%; max-height: 130mm; }
+img.tall    { max-width: 60%;  max-height: 210mm; }
+
+/* 콘텐츠 너비 확장 유틸리티 */
+img.wide {
+  max-width: calc(100% + 40px);
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+}
+img.full {
+  max-width: calc(100% + 24mm);
+  width: calc(100% + 24mm);
+  margin-left: -12mm;
+  margin-right: -12mm;
+}
+img.zoom {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+}

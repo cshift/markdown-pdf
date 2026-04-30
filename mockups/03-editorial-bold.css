@@ -1,0 +1,269 @@
+/* ============================================
+   Mockup 03 — Editorial Bold
+   Concept: 매거진 / 에디토리얼 / 출판물
+   특징: 세리프 헤딩 + 산세리프 본문, 강한 컬러 블록, 큰 숫자
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Cormorant+Garamond:wght@500;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+  --bg: #fdfbf7;
+  --paper: #ffffff;
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --ink-muted: #888;
+
+  --accent: #d4332f;        /* 강렬한 빨강 */
+  --accent-2: #e8b923;      /* 노랑 */
+  --accent-3: #1f3a5f;      /* 짙은 네이비 */
+  --highlight: #fff8c4;
+  --rule: #1a1a1a;
+}
+
+body {
+  font-family: 'Pretendard', system-ui, sans-serif;
+  font-size: 9.5pt;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 제목 — 세리프 + 강한 위계 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+  color: var(--ink);
+}
+h1, h2, h3 { page-break-after: avoid; }
+
+h1 {
+  font-size: 32pt;
+  font-weight: 900;
+  margin-top: 0;
+  padding-bottom: 0.2em;
+  border-bottom: 4px double var(--rule);
+  letter-spacing: -0.02em;
+}
+h1:first-of-type { page-break-before: avoid; }
+
+h2 {
+  font-size: 19pt;
+  font-style: italic;
+  color: var(--accent);
+  margin-top: 2em;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 13pt;
+  font-weight: 700;
+  font-family: 'Pretendard', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-3);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.4em;
+}
+
+h4 {
+  font-size: 11pt;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* 첫 단락 (드롭캡 효과 옵션) */
+h1 + p:first-letter,
+h2 + p:first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4em;
+  font-weight: 900;
+  float: left;
+  line-height: 0.9;
+  margin: 0.05em 8px 0 0;
+  color: var(--accent);
+}
+
+/* 코드블록 — 종이 위 인쇄 느낌 */
+pre {
+  background: #1a1a1a;
+  border: none;
+  border-left: 6px solid var(--accent);
+  border-radius: 0;
+  padding: 16px 22px;
+  page-break-inside: auto;
+  margin: 1.2em 0;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+pre code {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 9pt;
+  color: #f5e9d3;
+  background: none;
+  padding: 0;
+  line-height: 1.6;
+}
+
+p code, li code, td code, th code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9pt;
+  background: var(--highlight);
+  color: var(--ink);
+  padding: 2px 6px;
+  border-radius: 0;
+  font-weight: 600;
+  border-bottom: 2px solid var(--accent);
+}
+
+/* 테이블 — 매거진 표 */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em 0;
+  font-size: 8.5pt;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  page-break-inside: auto;
+  background: var(--paper);
+}
+tr { page-break-inside: avoid; }
+
+thead { border-bottom: 1px solid var(--ink); }
+th {
+  color: var(--ink);
+  font-weight: 700;
+  padding: 10px 14px;
+  text-align: left;
+  border: none;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Pretendard', sans-serif;
+}
+td {
+  border-bottom: 1px solid #e5dccd;
+  padding: 9px 14px;
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+
+/* 콜아웃 — 풀너비 컬러 블록 */
+blockquote {
+  margin: 1.5em -10px;
+  padding: 18px 24px;
+  background: var(--accent-3);
+  color: white;
+  border-radius: 0;
+  page-break-inside: avoid;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12pt;
+  font-style: italic;
+  line-height: 1.5;
+  position: relative;
+}
+blockquote::before {
+  content: '"';
+  font-size: 60pt;
+  font-family: 'Playfair Display', serif;
+  color: var(--accent-2);
+  position: absolute;
+  top: -8px; left: 8px;
+  line-height: 1;
+  opacity: 0.7;
+}
+blockquote p { margin: 0.4em 0 0.4em 36px; }
+blockquote:has(strong:first-child) {
+  background: var(--accent);
+}
+
+/* 강조 / 링크 */
+strong { font-weight: 800; color: var(--ink); }
+em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05em; color: var(--ink-soft); }
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent-2);
+  font-weight: 600;
+}
+a:hover { background: var(--highlight); }
+
+mark { background: var(--accent-2); padding: 1px 4px; }
+
+ul, ol { margin: 0.8em 0; padding-left: 1.6em; }
+li { margin: 0.4em 0; line-height: 1.65; }
+li::marker { color: var(--accent); font-weight: 700; }
+
+p { margin: 0.8em 0; word-break: keep-all; text-align: justify; }
+
+hr {
+  border: none;
+  height: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin: 2.5em 0;
+  position: relative;
+}
+hr::after {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  background: var(--bg);
+  padding: 0 12px;
+  color: var(--accent);
+  font-size: 10pt;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  margin: 1.5em auto;
+  display: block;
+  border: 1px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--accent);
+}
+
+@media print {
+  body { font-size: 9.5pt; }
+  h1, h2, h3 { page-break-after: avoid; }
+  pre, blockquote, table, figure { page-break-inside: auto; }
+  a[href^="http"]:after { content: ""; }
+  p, li { orphans: 3; widows: 3; }
+}
+.page-break { page-break-after: always; }
+.no-break   { page-break-inside: avoid; }
+.break-before { page-break-before: always; }
+
+img.small   { max-width: 50%;  max-height: 100mm; }
+img.medium  { max-width: 75%;  max-height: 150mm; }
+img.large   { max-width: 100%; max-height: 210mm; }
+img.xlarge  { width: 100%; max-width: 100%; max-height: 230mm; }
+img.landscape { max-width: 100%; max-height: 130mm; }
+img.tall    { max-width: 60%;  max-height: 210mm; }
+
+/* 콘텐츠 너비 확장 유틸리티 */
+img.wide {
+  max-width: calc(100% + 40px);
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+}
+img.full {
+  max-width: calc(100% + 24mm);
+  width: calc(100% + 24mm);
+  margin-left: -12mm;
+  margin-right: -12mm;
+}
+img.zoom {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+}

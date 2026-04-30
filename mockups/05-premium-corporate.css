@@ -1,0 +1,298 @@
+/* ============================================
+   Mockup 05 — Premium Corporate
+   Concept: 연차보고서 / 경영진 문서 / 럭셔리 브랜드
+   특징: 네이비 + 골드 + 크림, 세리프 헤딩, 고급스러운 보더 / 장식
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+  --bg: #fdfaf3;
+  --paper: #ffffff;
+
+  --navy:        #0a2540;
+  --navy-soft:   #1e3a5f;
+  --navy-pale:   #e8eef5;
+
+  --gold:        #b8860b;
+  --gold-soft:   #d4a017;
+  --gold-pale:   #faf4dd;
+
+  --cream:       #f5e9d3;
+  --ink:         #1a1a1a;
+  --ink-soft:    #4a4a4a;
+  --ink-muted:   #8a8a8a;
+
+  --rule:        #c9a961;
+}
+
+body {
+  font-family: 'Pretendard', 'Inter', system-ui, sans-serif;
+  font-size: 9.5pt;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 제목 — 세리프 + 골드 장식 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', 'Pretendard', serif;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+  color: var(--navy);
+}
+h1, h2, h3 { page-break-after: avoid; }
+
+h1 {
+  font-size: 30pt;
+  font-weight: 700;
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  position: relative;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+h1::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 0.4em auto 0;
+}
+h1::before {
+  content: '✦';
+  display: block;
+  font-size: 14pt;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 0.2em;
+  font-weight: normal;
+}
+h1:first-of-type { page-break-before: avoid; }
+
+h2 {
+  font-size: 20pt;
+  font-weight: 600;
+  margin-top: 2em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3em;
+  position: relative;
+}
+h2::before {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+}
+
+h3 {
+  font-size: 13pt;
+  font-style: italic;
+  color: var(--navy-soft);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 11pt;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* 코드블록 — 격조있는 다크 */
+pre {
+  background: var(--navy);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 16px 22px;
+  page-break-inside: auto;
+  margin: 1.3em 0;
+  box-shadow: 0 4px 16px rgba(10, 37, 64, 0.15);
+  position: relative;
+}
+pre::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+pre code {
+  font-family: 'JetBrains Mono', 'D2Coding', 'Courier New', monospace;
+  font-size: 9pt;
+  color: var(--cream);
+  background: none;
+  padding: 0;
+  line-height: 1.65;
+}
+
+p code, li code, td code, th code {
+  font-family: 'JetBrains Mono', 'D2Coding', monospace;
+  font-size: 8.8pt;
+  background: var(--gold-pale);
+  color: var(--navy);
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--gold);
+}
+
+/* 테이블 — 격조있는 표 */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em 0;
+  font-size: 8.5pt;
+  border-top: 2px solid var(--navy);
+  border-bottom: 2px solid var(--navy);
+  page-break-inside: auto;
+  background: var(--paper);
+}
+tr { page-break-inside: avoid; }
+
+thead {
+  background: var(--navy);
+  border-bottom: 2px solid var(--gold);
+}
+th {
+  color: var(--gold-soft);
+  font-weight: 600;
+  padding: 10px 16px;
+  text-align: left;
+  border: none;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Inter', 'Pretendard', sans-serif;
+}
+td {
+  border-bottom: 1px solid var(--cream);
+  padding: 10px 16px;
+  vertical-align: top;
+  color: var(--ink);
+}
+tr:nth-child(even) td { background: var(--gold-pale); }
+tr:last-child td { border-bottom: none; }
+
+/* 콜아웃 — 인용구 풍 */
+blockquote {
+  margin: 1.5em 0;
+  padding: 18px 24px 18px 50px;
+  background: var(--navy-pale);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  page-break-inside: avoid;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11pt;
+  font-style: italic;
+  color: var(--navy);
+  position: relative;
+  line-height: 1.55;
+}
+blockquote::before {
+  content: '"';
+  font-size: 48pt;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--gold);
+  position: absolute;
+  top: -2px; left: 12px;
+  line-height: 1;
+}
+blockquote p { margin: 0.4em 0; }
+blockquote:has(strong:first-child) {
+  background: var(--gold-pale);
+  border-left-color: var(--navy);
+}
+
+/* 강조 / 링크 */
+strong { font-weight: 700; color: var(--navy); }
+em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05em; color: var(--navy-soft); }
+a {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  font-weight: 500;
+}
+a:hover { color: var(--gold); }
+
+mark { background: var(--gold-pale); padding: 1px 4px; border-bottom: 1px solid var(--gold); }
+
+ul, ol { margin: 0.8em 0; padding-left: 1.8em; }
+li { margin: 0.4em 0; line-height: 1.7; }
+li::marker { color: var(--gold); font-weight: 700; }
+
+p { margin: 0.8em 0; word-break: keep-all; }
+
+/* 수평선 — 장식적 */
+hr {
+  border: none;
+  height: 0;
+  margin: 2.5em 0;
+  position: relative;
+  text-align: center;
+}
+hr::after {
+  content: '✦  ✦  ✦';
+  color: var(--gold);
+  letter-spacing: 8px;
+  font-size: 10pt;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 1.2em auto;
+  display: block;
+  border: 1px solid var(--rule);
+  padding: 4px;
+  background: var(--paper);
+  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.1);
+}
+
+@media print {
+  body { font-size: 9.5pt; }
+  h1, h2, h3 { page-break-after: avoid; }
+  pre, blockquote, table, figure { page-break-inside: auto; }
+  a[href^="http"]:after { content: ""; }
+  p, li { orphans: 3; widows: 3; }
+}
+.page-break { page-break-after: always; }
+.no-break   { page-break-inside: avoid; }
+.break-before { page-break-before: always; }
+
+img.small   { max-width: 50%;  max-height: 100mm; }
+img.medium  { max-width: 75%;  max-height: 150mm; }
+img.large   { max-width: 100%; max-height: 210mm; }
+img.xlarge  { width: 100%; max-width: 100%; max-height: 230mm; }
+img.landscape { max-width: 100%; max-height: 130mm; }
+img.tall    { max-width: 60%;  max-height: 210mm; }
+
+/* 콘텐츠 너비 확장 유틸리티 */
+img.wide {
+  max-width: calc(100% + 40px);
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+}
+img.full {
+  max-width: calc(100% + 24mm);
+  width: calc(100% + 24mm);
+  margin-left: -12mm;
+  margin-right: -12mm;
+}
+img.zoom {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+}

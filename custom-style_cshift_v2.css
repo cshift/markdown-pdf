@@ -1,0 +1,461 @@
+/* ============================================
+   CloudShift 기술 문서 스타일시트 — Modern
+   StarRocks Issue Report
+   Version: 2.0 (Modernized)
+   Design: Neutral palette · Pretendard · Flat surfaces
+   ============================================ */
+
+/* ============================================
+   1. 폰트 & 디자인 토큰
+   ============================================ */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+  /* 뉴트럴 (Tailwind slate 기반) */
+  --neutral-950: #020617;
+  --neutral-900: #0f172a;
+  --neutral-800: #1e293b;
+  --neutral-700: #334155;
+  --neutral-600: #475569;
+  --neutral-500: #64748b;
+  --neutral-400: #94a3b8;
+  --neutral-300: #cbd5e1;
+  --neutral-200: #e2e8f0;
+  --neutral-100: #f1f5f9;
+  --neutral-50:  #f8fafc;
+
+  /* 액센트 (indigo, 차분함) */
+  --accent:        #4f46e5;
+  --accent-hover:  #4338ca;
+  --accent-soft:   #eef2ff;
+  --accent-border: #c7d2fe;
+
+  /* 의미론적 컬러 (절제된 톤) */
+  --info:    #3b82f6;
+  --info-soft:    #eff6ff;
+  --warning: #d97706;
+  --warning-soft: #fffbeb;
+  --danger:  #dc2626;
+  --danger-soft:  #fef2f2;
+  --success: #059669;
+  --success-soft: #ecfdf5;
+
+  /* 라디우스 통일 */
+  --radius-sm: 4px;
+  --radius:    8px;
+  --radius-lg: 12px;
+}
+
+/* ============================================
+   2. 본문
+   ============================================ */
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont,
+               'Malgun Gothic', sans-serif;
+  font-size: 9pt;
+  line-height: 1.65;
+  color: var(--neutral-800);
+  background-color: white;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'ss01', 'cv01';
+}
+
+/* ============================================
+   3. 제목 (보더 제거 · 굵기와 공백으로 위계)
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--neutral-900);
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+}
+
+h1, h2, h3 {
+  page-break-after: avoid;
+}
+
+h1 {
+  font-size: 22pt;
+  font-weight: 700;
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+h1:first-of-type {
+  page-break-before: avoid;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 15pt;
+  margin-top: 2em;
+}
+
+h3 {
+  font-size: 12pt;
+  color: var(--neutral-800);
+  margin-top: 1.5em;
+}
+
+h4 {
+  font-size: 10.5pt;
+  color: var(--neutral-700);
+  font-weight: 600;
+  margin-top: 1.2em;
+}
+
+/* ============================================
+   4. 코드 블록 (GitHub Dark 톤)
+   ============================================ */
+pre {
+  background-color: #0d1117;
+  border: 1px solid #21262d;
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  overflow-x: auto;
+  page-break-inside: auto;
+  margin: 1em 0;
+  box-shadow: none;
+}
+
+pre code {
+  font-family: 'JetBrains Mono', 'D2Coding', 'IBM Plex Mono',
+               'Fira Code', Consolas, monospace;
+  font-size: 9pt;
+  line-height: 1.55;
+  color: #e6edf3;
+  background: none;
+  padding: 0;
+}
+
+/* 인라인 코드 (절제된 톤) */
+p code, li code, td code, th code {
+  font-family: 'JetBrains Mono', 'D2Coding', Consolas, monospace;
+  font-size: 8.8pt;
+  background-color: var(--neutral-100);
+  color: var(--accent-hover);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+pre .hljs-comment {
+  color: #7d8590;
+  font-style: italic;
+}
+
+/* ============================================
+   5. 테이블 (평면 · 얇은 보더)
+   ============================================ */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2em 0;
+  page-break-inside: auto;
+  font-size: 8pt;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: none;
+}
+
+tr {
+  page-break-inside: avoid;
+}
+
+thead {
+  background: var(--neutral-50);
+}
+
+th {
+  color: var(--neutral-900);
+  font-weight: 600;
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--neutral-200);
+  font-size: 8pt;
+}
+
+td {
+  border-bottom: 1px solid var(--neutral-100);
+  padding: 7px 12px;
+  vertical-align: top;
+  color: var(--neutral-700);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:nth-child(even) {
+  background-color: transparent;
+}
+
+td code {
+  font-size: 8pt;
+}
+
+/* ============================================
+   6. Blockquote / Callout (미니멀)
+   ============================================ */
+blockquote {
+  margin: 1.2em 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background-color: var(--accent-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  page-break-inside: avoid;
+  font-size: 9pt;
+  color: var(--neutral-700);
+  position: relative;
+}
+
+blockquote p {
+  margin: 0.4em 0;
+}
+
+/* 주의 (Warning) */
+blockquote:has(strong:first-child) {
+  border-left-color: var(--warning);
+  background-color: var(--warning-soft);
+  color: #92400e;
+}
+
+blockquote p:first-child strong:first-child {
+  display: inline-block;
+  margin-bottom: 4px;
+  color: inherit;
+}
+
+/* ============================================
+   7. 강조 텍스트
+   ============================================ */
+strong {
+  font-weight: 600;
+  color: var(--neutral-900);
+}
+
+blockquote strong {
+  color: inherit;
+}
+
+em {
+  font-style: italic;
+  color: var(--neutral-600);
+}
+
+mark {
+  background-color: #fef9c3;
+  padding: 1px 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   8. 링크 (절제된 밑줄)
+   ============================================ */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-border);
+  transition: color 0.15s, border-color 0.15s;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent);
+}
+
+a[href^="http"]:after {
+  content: " ↗";
+  font-size: 8pt;
+  vertical-align: super;
+  color: var(--neutral-400);
+}
+
+/* ============================================
+   9. 리스트
+   ============================================ */
+ul, ol {
+  margin: 0.7em 0;
+  padding-left: 1.6em;
+}
+
+li {
+  margin: 0.3em 0;
+  line-height: 1.6;
+}
+
+li::marker {
+  color: var(--neutral-400);
+}
+
+li > ul, li > ol {
+  margin: 0.3em 0;
+}
+
+ul { list-style-type: disc; }
+ul ul { list-style-type: circle; }
+ul ul ul { list-style-type: square; }
+ol { list-style-type: decimal; }
+ol ol { list-style-type: lower-alpha; }
+
+/* ============================================
+   10. 단락
+   ============================================ */
+p {
+  margin: 0.7em 0;
+  text-align: left;
+  word-break: keep-all;
+}
+
+h1 + p, h2 + p, h3 + p, h4 + p {
+  margin-top: 0.4em;
+}
+
+/* ============================================
+   11. 수평선 (얇고 흐림)
+   ============================================ */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--neutral-200);
+  margin: 2em 0;
+}
+
+/* ============================================
+   12. 이미지 (가운데 정렬)
+   ============================================ */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin: 1em auto;
+  display: block;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   13. 인쇄 최적화
+   ============================================ */
+@media print {
+  body {
+    font-size: 9pt;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  pre, blockquote, table, figure {
+    page-break-inside: auto;
+  }
+
+  a[href^="http"]:after {
+    content: "";
+  }
+
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+/* ============================================
+   14. 페이지 브레이크 유틸리티
+   ============================================ */
+.page-break    { page-break-after: always; }
+.no-break      { page-break-inside: avoid; }
+.break-before  { page-break-before: always; }
+
+/* ============================================
+   15. 목차 (TOC)
+   ============================================ */
+nav#toc {
+  background-color: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  padding: 18px 22px;
+  border-radius: var(--radius);
+  margin-bottom: 2em;
+}
+
+nav#toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+nav#toc li {
+  margin: 0.3em 0;
+}
+
+nav#toc a {
+  border-bottom: none;
+  color: var(--neutral-700);
+}
+
+nav#toc a:hover {
+  color: var(--accent);
+}
+
+/* ============================================
+   16. ASCII art / 다이어그램 코드 블록
+   ============================================ */
+pre:has(code:contains("→")),
+pre:has(code:contains("─")) {
+  background-color: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  text-align: center;
+}
+
+pre:has(code:contains("→")) code,
+pre:has(code:contains("─")) code {
+  color: var(--neutral-800);
+  font-size: 9.5pt;
+}
+
+/* ============================================
+   17. 이미지 사이즈 유틸리티
+   ============================================ */
+img.small   { max-width: 50%;  max-height: 100mm; }
+img.medium  { max-width: 75%;  max-height: 150mm; }
+img.large   { max-width: 100%; max-height: 210mm; }
+img.xlarge  { width: 100%; max-width: 100%; max-height: 230mm; }
+
+img.landscape {
+  max-width: 100%;
+  max-height: 130mm;
+}
+
+img.tall {
+  max-width: 60%;
+  max-height: 210mm;
+}
+
+/* 콘텐츠 너비 확장 */
+img.wide {
+  max-width: calc(100% + 40px);
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+}
+img.full {
+  max-width: calc(100% + 24mm);
+  width: calc(100% + 24mm);
+  margin-left: -12mm;
+  margin-right: -12mm;
+}
+img.zoom {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+}
+
+/* ============================================
+   18. 기타 (문서 버전 정보 등)
+   ============================================ */
+p:last-of-type {
+  color: var(--neutral-500);
+  font-size: 9pt;
+}

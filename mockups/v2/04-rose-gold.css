@@ -1,0 +1,224 @@
+/* ============================================
+   v2 / 04 — Rose Gold
+   Concept: 우아한 럭셔리 (로즈 → 핑크 → 구리)
+   특징: 흰 배경 + 로즈골드 그라디언트, 부드러운 럭셔리
+   ============================================ */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+  --bg: #ffffff;
+  --text: #2d1f24;
+  --text-soft: #5c3d4a;
+  --text-muted: #9b7585;
+
+  --grad-main: linear-gradient(135deg, #ec4899 0%, #f472b6 35%, #c2856b 100%);
+  --grad-deep: linear-gradient(135deg, #831843 0%, #be185d 50%, #b45309 100%);
+  --grad-soft: linear-gradient(135deg, #fdf2f8 0%, #fef3c7 100%);
+
+  --accent: #be185d;
+  --accent-2: #b45309;
+  --accent-soft: #fce7f3;
+  --border: #fbcfe8;
+  --surface: #fdf2f8;
+  --code-bg: #2d1f24;
+}
+
+body {
+  font-family: 'Pretendard', system-ui, sans-serif;
+  font-size: 9pt;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+  line-height: 1.25;
+}
+h1, h2, h3 { page-break-after: avoid; }
+
+h1 {
+  font-size: 26pt;
+  background: var(--grad-deep);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 0;
+}
+h1:first-of-type { page-break-before: avoid; }
+
+h2 {
+  font-size: 16pt;
+  color: var(--text);
+  position: relative;
+  padding-left: 16px;
+  margin-top: 2em;
+}
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.2em; bottom: 0.2em;
+  width: 4px;
+  background: var(--grad-main);
+  border-radius: 2px;
+}
+
+h3 { font-size: 12pt; color: var(--accent); font-weight: 600; }
+h4 { font-size: 10.5pt; color: var(--text-soft); font-weight: 600; }
+
+pre {
+  background: var(--code-bg);
+  background: linear-gradient(135deg, #2d1f24 0%, #3d2a32 100%);
+  border: 1px solid #4a3540;
+  border-radius: 12px;
+  padding: 16px 20px;
+  page-break-inside: auto;
+  margin: 1.2em 0;
+  box-shadow: 0 8px 24px rgba(190, 24, 93, 0.15);
+}
+pre code {
+  font-family: 'JetBrains Mono', 'D2Coding', Consolas, monospace;
+  font-size: 9pt;
+  color: #fce7f3;
+  background: none;
+  padding: 0;
+  line-height: 1.6;
+}
+
+p code, li code, td code, th code {
+  font-family: 'JetBrains Mono', 'D2Coding', monospace;
+  font-size: 8.8pt;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2em 0;
+  font-size: 8pt;
+  border-radius: 12px;
+  overflow: hidden;
+  page-break-inside: auto;
+  box-shadow: 0 4px 16px rgba(190, 24, 93, 0.08);
+  border: 1px solid var(--border);
+}
+tr { page-break-inside: avoid; }
+
+thead { background: var(--grad-main); }
+th {
+  color: white;
+  font-weight: 600;
+  padding: 12px 14px;
+  text-align: left;
+  border: none;
+  font-size: 8pt;
+  letter-spacing: 0.02em;
+}
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 14px;
+  vertical-align: top;
+  background: white;
+  color: var(--text-soft);
+}
+tr:nth-child(even) td { background: var(--surface); }
+tr:last-child td { border-bottom: none; }
+
+blockquote {
+  margin: 1.2em 0;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--grad-soft);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  page-break-inside: avoid;
+  font-size: 9pt;
+  color: var(--text-soft);
+}
+blockquote p { margin: 0.4em 0; }
+blockquote:has(strong:first-child) {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border-left-color: #dc2626;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+strong { color: var(--text); font-weight: 700; }
+em { color: var(--text-soft); font-style: italic; }
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+}
+a:hover { border-bottom-color: var(--accent); }
+
+ul, ol { margin: 0.7em 0; padding-left: 1.6em; }
+li { margin: 0.3em 0; line-height: 1.6; }
+li::marker { color: var(--accent); }
+
+p { margin: 0.7em 0; word-break: keep-all; }
+
+hr {
+  border: none;
+  height: 2px;
+  background: var(--grad-main);
+  margin: 2em 0;
+  border-radius: 1px;
+  opacity: 0.4;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 1em auto;
+  display: block;
+  box-shadow: 0 8px 24px rgba(190, 24, 93, 0.12);
+}
+
+@media print {
+  body { font-size: 9pt; }
+  h1, h2, h3 { page-break-after: avoid; }
+  pre, blockquote, table, figure { page-break-inside: auto; }
+  a[href^="http"]:after { content: ""; }
+  p, li { orphans: 3; widows: 3; }
+}
+.page-break { page-break-after: always; }
+.no-break   { page-break-inside: avoid; }
+.break-before { page-break-before: always; }
+
+img.small   { max-width: 50%;  max-height: 100mm; }
+img.medium  { max-width: 75%;  max-height: 150mm; }
+img.large   { max-width: 100%; max-height: 210mm; }
+img.xlarge  { width: 100%; max-width: 100%; max-height: 230mm; }
+img.landscape { max-width: 100%; max-height: 130mm; }
+img.tall    { max-width: 60%;  max-height: 210mm; }
+
+/* 콘텐츠 너비 확장 유틸리티 */
+img.wide {
+  max-width: calc(100% + 40px);
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+}
+img.full {
+  max-width: calc(100% + 24mm);
+  width: calc(100% + 24mm);
+  margin-left: -12mm;
+  margin-right: -12mm;
+}
+img.zoom {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+}

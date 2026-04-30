@@ -1,0 +1,231 @@
+/* ============================================
+   Mockup 04 — Glassmorphism
+   Concept: 파스텔 / 부드러운 / iOS 분위기
+   특징: 파스텔 그라디언트 배경, 반투명 카드, 큰 라운드, 부드러운 그림자
+   ============================================ */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+  --bg-grad: linear-gradient(135deg, #fef3f8 0%, #eff6ff 50%, #f0fdf4 100%);
+  --paper: rgba(255, 255, 255, 0.65);
+  --paper-strong: rgba(255, 255, 255, 0.85);
+
+  --text: #2d2d3a;
+  --text-soft: #5a5a6e;
+  --text-muted: #9090a8;
+
+  --pink: #ec4899;
+  --purple: #a855f7;
+  --blue: #3b82f6;
+  --teal: #14b8a6;
+
+  --pink-soft: #fce7f3;
+  --purple-soft: #f3e8ff;
+  --blue-soft: #dbeafe;
+  --teal-soft: #ccfbf1;
+
+  --border: rgba(255, 255, 255, 0.6);
+  --shadow: 0 8px 32px rgba(168, 85, 247, 0.08);
+  --shadow-lg: 0 16px 48px rgba(168, 85, 247, 0.12);
+}
+
+body {
+  font-family: 'Pretendard', system-ui, sans-serif;
+  font-size: 9pt;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--bg-grad);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 제목 — 부드러움 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+  line-height: 1.25;
+}
+h1, h2, h3 { page-break-after: avoid; }
+
+h1 {
+  font-size: 26pt;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 50%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 0;
+  font-weight: 800;
+}
+h1:first-of-type { page-break-before: avoid; }
+
+h2 {
+  font-size: 16pt;
+  color: var(--purple);
+  margin-top: 2em;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 12pt;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+h4 { font-size: 10.5pt; color: var(--teal); font-weight: 600; }
+
+/* 코드블록 — 글래스 카드 (다크) */
+pre {
+  background: rgba(20, 20, 35, 0.92);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 16px;
+  padding: 18px 22px;
+  page-break-inside: auto;
+  margin: 1.2em 0;
+  box-shadow: var(--shadow);
+}
+pre code {
+  font-family: 'JetBrains Mono', 'D2Coding', Consolas, monospace;
+  font-size: 9pt;
+  color: #f0e7ff;
+  background: none;
+  padding: 0;
+  line-height: 1.6;
+}
+
+p code, li code, td code, th code {
+  font-family: 'JetBrains Mono', 'D2Coding', Consolas, monospace;
+  font-size: 8.8pt;
+  background: var(--purple-soft);
+  color: var(--purple);
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+/* 테이블 — 글래스 카드 */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin: 1.2em 0;
+  font-size: 8pt;
+  border-radius: 16px;
+  overflow: hidden;
+  page-break-inside: auto;
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+}
+tr { page-break-inside: avoid; }
+
+thead {
+  background: linear-gradient(135deg, var(--purple-soft) 0%, var(--pink-soft) 100%);
+}
+th {
+  color: var(--purple);
+  font-weight: 700;
+  padding: 12px 14px;
+  text-align: left;
+  border: none;
+  font-size: 8pt;
+}
+td {
+  border-bottom: 1px solid rgba(168, 85, 247, 0.08);
+  padding: 9px 14px;
+  vertical-align: top;
+  background: var(--paper);
+}
+tr:last-child td { border-bottom: none; }
+
+/* 콜아웃 — 글래스 카드 */
+blockquote {
+  margin: 1.2em 0;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--blue-soft) 0%, var(--teal-soft) 100%);
+  border-radius: 16px;
+  page-break-inside: avoid;
+  font-size: 9pt;
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+blockquote p { margin: 0.4em 0; }
+blockquote:has(strong:first-child) {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+}
+
+/* 강조 / 링크 */
+strong { color: var(--text); font-weight: 700; }
+em { color: var(--text-soft); font-style: italic; }
+a {
+  color: var(--purple);
+  text-decoration: none;
+  border-bottom: 1px solid var(--purple-soft);
+  font-weight: 500;
+}
+a:hover { border-bottom-color: var(--purple); }
+
+ul, ol { margin: 0.7em 0; padding-left: 1.6em; }
+li { margin: 0.3em 0; line-height: 1.65; }
+li::marker { color: var(--pink); }
+
+p { margin: 0.7em 0; word-break: keep-all; }
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--purple), transparent);
+  margin: 2em 0;
+  opacity: 0.4;
+}
+
+/* 이미지 — 글래스 카드 */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin: 1.2em auto;
+  display: block;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+@media print {
+  body { font-size: 9pt; }
+  h1, h2, h3 { page-break-after: avoid; }
+  pre, blockquote, table, figure { page-break-inside: auto; }
+  a[href^="http"]:after { content: ""; }
+  p, li { orphans: 3; widows: 3; }
+}
+.page-break { page-break-after: always; }
+.no-break   { page-break-inside: avoid; }
+.break-before { page-break-before: always; }
+
+img.small   { max-width: 50%;  max-height: 100mm; }
+img.medium  { max-width: 75%;  max-height: 150mm; }
+img.large   { max-width: 100%; max-height: 210mm; }
+img.xlarge  { width: 100%; max-width: 100%; max-height: 230mm; }
+img.landscape { max-width: 100%; max-height: 130mm; }
+img.tall    { max-width: 60%;  max-height: 210mm; }
+
+/* 콘텐츠 너비 확장 유틸리티 */
+img.wide {
+  max-width: calc(100% + 40px);
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+}
+img.full {
+  max-width: calc(100% + 24mm);
+  width: calc(100% + 24mm);
+  margin-left: -12mm;
+  margin-right: -12mm;
+}
+img.zoom {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+}
