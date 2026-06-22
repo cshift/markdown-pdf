@@ -115,20 +115,25 @@ pre {
   border: 1px solid #21262d;
   border-radius: var(--radius);
   padding: 14px 18px;
-  overflow-x: auto;
   page-break-inside: auto;
   margin: 1em 0;
   box-shadow: none;
+
+  /* ▼ 줄바꿈 처리 (변경된 부분) */
+  white-space: pre-wrap;       /* 공백·들여쓰기 유지하며 자동 줄바꿈 */
+  overflow-wrap: anywhere;     /* 긴 토큰(URL, 옵션값 등)도 폭에 맞춰 분할 */
+  overflow-x: hidden;          /* auto → hidden (PDF엔 스크롤 없음) */
 }
 
 pre code {
   font-family: 'JetBrains Mono', 'D2Coding', 'IBM Plex Mono',
-               'Fira Code', Consolas, monospace;
+    'Fira Code', Consolas, monospace;
   font-size: 9pt;
   line-height: 1.55;
   color: #e6edf3;
   background: none;
   padding: 0;
+  white-space: inherit;        /* pre의 pre-wrap 상속 */
 }
 
 /* 인라인 코드 (절제된 톤) */
