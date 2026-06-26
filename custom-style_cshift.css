@@ -477,3 +477,32 @@ img.tall {
   max-width: 60%;
   max-height: 210mm;
 }
+
+/* ============================================
+   18. 기타 (문서 버전 정보 등)
+   ============================================ */
+p:last-of-type {
+  color: var(--neutral-500);
+  font-size: 9pt;
+}
+
+/* ============================================
+   19. 이미지 정렬 클래스
+   ============================================ */
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img.left {
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+img.right {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
